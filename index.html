@@ -27,12 +27,18 @@
       .text-black {
         color: #1a1a1a;
       }
+      .text-gray-700 {
+        color: #4a4a4a;
+      }
+      .bg-gray-300 {
+        background-color: #d6d6d6;
+      }
     </style>
   </head>
   <body>
     <div id="pdf-content">
       <!-- PAGE 1 -->
-      <!-- <div class="page min-h-screen px-24 bg-black py-60 relative text-white">
+      <div class="page min-h-screen px-24 bg-black py-60 relative text-white">
         <div class="page-content">
           <img
             src="./blue-dots.png"
@@ -41,7 +47,11 @@
           />
           <div class="flex flex-col gap-96">
             <div class="">
-              <img src="./red-falcon.svg" alt="8lete" class="w-56 rounded-full" />
+              <img
+                src="./red-falcon.svg"
+                alt="8lete"
+                class="w-52 rounded-full"
+              />
             </div>
             <div class="flex flex-col gap-32">
               <div class="flex flex-col gap-16">
@@ -61,8 +71,85 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
+      <!-- PAGE 2 -->
+      <div class="page min-h-screen px-24 py-20 relative text-black">
+        <div class="page-content pb-32">
+          <img
+            src="./page-design.svg"
+            alt="page-design"
+            class="w-20 absolute top-0 right-0"
+          />
+          <img
+            src="./page-element.png"
+            alt="page-design"
+            class="w-48 absolute left-0 bottom-48"
+          />
+          <img
+            src="./8lete-bg-logo.svg"
+            alt="logo-design"
+            class="w-80 absolute right-0 -bottom-12 opacity-20"
+          />
+          <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-20">
+              <div class="flex justify-between items-center pr-8">
+                <h1 class="text-7xl font-black mb-8">Coach Details</h1>
+                <img
+                  src="./red-falcon.svg"
+                  alt="8lete"
+                  class="w-40 border-4 rounded-full"
+                  style="border-color: #327bed"
+                />
+              </div>
+              <div class="flex justify-between">
+                <div class="" style="width: 30%">
+                  <h2 class="text-5xl font-bold">Abhilash Yadav</h2>
+                </div>
+                <div style="width: 63%" class="flex flex-col gap-10">
+                  <p
+                    class="text-xl font-light text-gray-700 leading-loose pr-8"
+                  >
+                    Abhilash Yadav is a dedicated and experienced football coach
+                    with a strong background in player development and tactical
+                    training. With 7+ years of coaching experience, he has
+                    worked with athletes across different skill levels, helping
+                    them refine their technique, improve game intelligence, and
+                    enhance overall performance. He emphasises discipline,
+                    teamwork, and strategic gameplay, ensuring each player
+                    reaches their full potential on and off the field.
+                  </p>
+                  <div
+                    class="flex justify-between rounded-3xl px-12 py-8 items-center"
+                    style="background-color: #f8f8f8"
+                  >
+                    <div class="flex flex-col items-center gap-2">
+                      <h6 class="text-3xl font-black">7+ years</h6>
+                      <p>Experience</p>
+                    </div>
+                    <div class="w-0.5 h-14 bg-gray-300"></div>
+                    <div class="flex flex-col items-center gap-2">
+                      <h6 class="text-3xl font-black">Head Coach</h6>
+                      <p>Role</p>
+                    </div>
+                    <div class="w-0.5 h-14 bg-gray-300"></div>
+                    <div class="flex flex-col items-center gap-2">
+                      <h6 class="text-3xl font-black">AIFF License A</h6>
+                      <p>Certification</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-8">
+                    <h6 class="text-4xl">Assessment Remarks</h6>
+                    <div id="assessment-remark" class="flex flex-col gap-8">
+                      <!-- data from script -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="page">
         <div class="page-content">
           <h1>Page 2</h1>
@@ -89,6 +176,7 @@
       document
         .getElementById("download")
         .addEventListener("click", async () => {
+          console.log("Download PDF");
           const { jsPDF } = window.jspdf;
           const pdf = new jsPDF("p", "in", "letter");
           const element = document.getElementById("pdf-content");
@@ -109,6 +197,56 @@
 
           pdf.save("document.pdf");
         });
+
+      const assessmentRemarks = [
+        {
+          date: "20 Jan 2025",
+          remarks:
+            "Demonstrates strong finishing ability in front of goal, with good composure under pressure. Needs to work on consistency in converting chances.",
+        },
+        {
+          date: "15 Jan 2025",
+          remarks:
+            "Possesses excellent dribbling skills and close ball control, allowing for effective take-ons. Could improve decision-making in 1v1 situations.",
+        },
+        {
+          date: "10 Jan 2025",
+          remarks:
+            "Shows great awareness in positioning and making intelligent runs behind the defense. Can further refine timing to exploit defensive gaps more effectively.",
+        },
+        {
+          date: "05 Jan 2025",
+          remarks:
+            "Displays high energy and commitment in pressing defenders and tracking back when needed. Encouraged to maintain intensity throughout the game.",
+        },
+        {
+          date: "01 Jan 2025",
+          remarks:
+            "Capable of creating goal-scoring opportunities for teammates with sharp passes and quick thinking. Should focus on improving vision for better playmaking in tight spaces.",
+        },
+      ];
+
+      assessmentRemarks.forEach((remark) => {
+        const remarkDiv = document.createElement("div");
+        remarkDiv.classList.add("flex", "flex-col", "gap-4");
+
+        const dateElement = document.createElement("h1");
+        dateElement.classList.add("text-2xl", "text-gray-700");
+        dateElement.textContent = remark.date;
+
+        const remarksElement = document.createElement("p");
+        remarksElement.classList.add(
+          "text-xl",
+          "font-light",
+          "text-gray-700",
+          "leading-loose"
+        );
+        remarksElement.textContent = remark.remarks;
+
+        remarkDiv.appendChild(dateElement);
+        remarkDiv.appendChild(remarksElement);
+        document.querySelector("#assessment-remark").appendChild(remarkDiv);
+      });
     </script>
   </body>
 </html>
