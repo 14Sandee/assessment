@@ -4,30 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style>
-      footer {
-        text-align: left;
-        width: 100%;
-        padding: 10px;
-        background-color: #f1f1f1;
+      body {
+        font-family: "DM Sans", sans-serif;
       }
       .page {
         page-break-after: always;
+      }
+      .bg-black {
+        background-color: #1a1a1a;
+      }
+      .text-black {
+        color: #1a1a1a;
       }
     </style>
   </head>
   <body>
     <div id="pdf-content">
-      <div class="page">
+      <!-- PAGE 1 -->
+      <!-- <div class="page min-h-screen px-24 bg-black py-60 relative text-white">
         <div class="page-content">
-          <h1>Hello, World!</h1>
-          <p>This is a sample content to be converted to PDF.</p>
+          <img
+            src="./blue-dots.png"
+            alt="blue-dots"
+            class="w-72 absolute right-0"
+          />
+          <div class="flex flex-col gap-96">
+            <div class="">
+              <img src="./red-falcon.svg" alt="8lete" class="w-56 rounded-full" />
+            </div>
+            <div class="flex flex-col gap-32">
+              <div class="flex flex-col gap-16">
+                <h1 class="text-9xl font-semibold">
+                  Assessment<br />
+                  Report
+                </h1>
+                <h2 class="text-6xl font-light">Abhishek Sharma</h2>
+              </div>
+              <div class="flex flex-col gap-20">
+                <p class="font-thin text-3xl">Monthly 1 Jan - 31 Jan</p>
+                <p class="font-thin text-3xl">Abhilash Yadav</p>
+              </div>
+              <div class="mt-16">
+                <h3 class="text-4xl">Powered by 8lete</h3>
+              </div>
+            </div>
+          </div>
         </div>
-        <footer class="footer">Powered by 8lete</footer>
-      </div>
+      </div> -->
+
       <div class="page">
         <div class="page-content">
           <h1>Page 2</h1>
@@ -69,7 +104,7 @@
             if (i > 0) {
               pdf.addPage();
             }
-            pdf.addImage(imgData, "JPEG", 0.2, 0.2, pdfWidth, pdfHeight);
+            pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
           }
 
           pdf.save("document.pdf");
