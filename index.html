@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      footer {
+        text-align: left;
+        width: 100%;
+        padding: 10px;
+        background-color: #f1f1f1;
+      }
+      .page {
+        page-break-after: always;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pdf-content">
+      <div class="page">
+        <div class="page-content">
+          <h1>Hello, World!</h1>
+          <p>This is a sample content to be converted to PDF.</p>
+        </div>
+        <footer class="footer">Powered by 8lete</footer>
+      </div>
+      <div class="page">
+        <div class="page-content">
+          <h1>Page 2</h1>
+          <p>This is the second page content.</p>
+        </div>
+        <footer class="footer">Powered by 8lete</footer>
+      </div>
+    </div>
+    <button id="download">Download PDF</button>
+    <!-- <script>
+      document.getElementById("download").addEventListener("click", () => {
+        const element = document.getElementById("pdf-content");
+        const opt = {
+          margin: 0.5,
+          filename: "document.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        };
+        html2pdf().from(element).set(opt).save();
+      });
+    </script> -->
+    <script>
+      document
+        .getElementById("download")
+        .addEventListener("click", async () => {
+          const { jsPDF } = window.jspdf;
+          const pdf = new jsPDF("p", "in", "letter");
+          const element = document.getElementById("pdf-content");
+          const pages = element.getElementsByClassName("page");
+
+          for (let i = 0; i < pages.length; i++) {
+            const canvas = await html2canvas(pages[i], { scale: 2 });
+            const imgData = canvas.toDataURL("image/jpeg", 0.98);
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            if (i > 0) {
+              pdf.addPage();
+            }
+            pdf.addImage(imgData, "JPEG", 0.2, 0.2, pdfWidth, pdfHeight);
+          }
+
+          pdf.save("document.pdf");
+        });
+    </script>
+  </body>
+</html>
