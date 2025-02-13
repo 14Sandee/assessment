@@ -448,6 +448,55 @@
         </div>
       </div>
 
+      <!-- PAGE 11 -->
+      <div class="page min-h-screen px-24 py-20 relative text-black">
+        <div class="page-content pb-32">
+          <img
+            src="./8lete-bg-logo.svg"
+            alt="logo-design"
+            class="w-80 absolute right-0 -bottom-12 opacity-20"
+          />
+          <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-10">
+              <div class="flex justify-between items-center pr-8">
+                <h1 class="text-7xl font-black mb-8">Match Point Analysis</h1>
+              </div>
+              <div
+                id="match-points"
+                class="flex justify-between items-center pr-8"
+              ></div>
+              <div class="relative z-10">
+                <div
+                  id="match-points-charts"
+                  style="max-width: 60%"
+                  class="gap-12"
+                ></div>
+              </div>
+              <div class="relative z-10 mt-12">
+                <table class="w-full">
+                  <thead style="background-color: #e4e4e4">
+                    <tr>
+                      <td class="px-4 py-8">Fixtures</td>
+                      <td class="px-4 py-8">Game Time</td>
+                      <td class="px-4 py-8">Position Played</td>
+                      <td class="px-4 py-8">Goals Scored</td>
+                      <td class="px-4 py-8">Assists</td>
+                      <td class="px-4 py-8">Match Points</td>
+                    </tr>
+                  </thead>
+                  <tbody
+                    id="match-points-table-body"
+                    style="background-color: #f6f6f6"
+                  >
+                    <!-- MATCH TABLE DATA -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- <div class="page">
         <div class="page-content">
           <h1>Page 2</h1>
@@ -659,6 +708,14 @@
           labels: ["1"],
           data: [83, 17],
         },
+        {
+          pageId: "attendance",
+          id: "attendance-analysis",
+          title: "Attendance (%) Analysis",
+          score: 83,
+          labels: ["1"],
+          data: [83, 17],
+        },
       ];
 
       overallPagesAnalysis.forEach((chart) => {
@@ -725,6 +782,8 @@
           },
         });
       });
+
+      // CHARTS DATA
 
       const overallPerformanceCharts = [
         {
@@ -961,6 +1020,15 @@
         },
       ];
 
+      const matchPointsAnalysisCharts = [
+        {
+          id: "monthly-charts",
+          title: "January 2025 Match Points",
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+      ];
+
       const allData = [
         {
           id: "overall-performance-charts",
@@ -985,6 +1053,10 @@
         {
           id: "physical-charts",
           data: physicalAnalysisCharts,
+        },
+        {
+          id: "match-points-charts",
+          data: matchPointsAnalysisCharts,
         },
       ];
 
@@ -1050,6 +1122,87 @@
             },
           });
         });
+      });
+
+      const matchPointsTableData = [
+        {
+          fixutre: "CFCI Wakanda vs DFA",
+          gameTime: "40 mins",
+          positionPlayed: "Left Winger",
+          goalsScored: 2,
+          assists: 0,
+          matchPoints: 21,
+        },
+        {
+          fixutre: "Red Falcons vs The Warriors",
+          gameTime: "30 mins",
+          positionPlayed: "Right Winger",
+          goalsScored: 2,
+          assists: 0,
+          matchPoints: 21,
+        },
+        {
+          fixutre: "Green Army vs DFA",
+          gameTime: "25 mins",
+          positionPlayed: "Striker",
+          goalsScored: 3,
+          assists: 2,
+          matchPoints: 23,
+        },
+        {
+          fixutre: "DFA vs CFCI Avengers",
+          gameTime: "20 mins",
+          positionPlayed: "Centre Attacking Midfielder",
+          goalsScored: 1,
+          assists: 1,
+          matchPoints: 19,
+        },
+        {
+          fixutre: "Red Falcons vs DFA",
+          gameTime: "40 mins",
+          positionPlayed: "Striker",
+          goalsScored: 2,
+          assists: 0,
+          matchPoints: 21,
+        },
+      ];
+
+      matchPointsTableData.forEach((data) => {
+        const row = document.createElement("tr");
+        row.style.borderBottom = "1px solid #e4e4e4";
+
+        const fixture = document.createElement("td");
+        fixture.classList.add("px-4", "py-8");
+        fixture.textContent = data.fixutre;
+
+        const gameTime = document.createElement("td");
+        gameTime.classList.add("px-4", "py-8");
+        gameTime.textContent = data.gameTime;
+
+        const positionPlayed = document.createElement("td");
+        positionPlayed.classList.add("px-4", "py-8");
+        positionPlayed.textContent = data.positionPlayed;
+
+        const goalsScored = document.createElement("td");
+        goalsScored.classList.add("px-4", "py-8");
+        goalsScored.textContent = data.goalsScored;
+
+        const assists = document.createElement("td");
+        assists.classList.add("px-4", "py-8");
+        assists.textContent = data.assists;
+
+        const matchPoints = document.createElement("td");
+        matchPoints.classList.add("px-4", "py-8");
+        matchPoints.textContent = data.matchPoints;
+
+        row.appendChild(fixture);
+        row.appendChild(gameTime);
+        row.appendChild(positionPlayed);
+        row.appendChild(goalsScored);
+        row.appendChild(assists);
+        row.appendChild(matchPoints);
+
+        document.querySelector("#match-points-table-body").appendChild(row);
       });
     </script>
   </body>
