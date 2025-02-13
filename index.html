@@ -448,6 +448,31 @@
         </div>
       </div>
 
+      <!-- PAGE 10 -->
+      <div class="page min-h-screen px-24 py-20 relative text-black">
+        <div class="page-content pb-32">
+          <img
+            src="./8lete-bg-logo.svg"
+            alt="logo-design"
+            class="w-80 absolute right-0 -bottom-12 opacity-20"
+          />
+          <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-20">
+              <div
+                id="attendance"
+                class="flex justify-between items-center pr-8"
+              ></div>
+              <div class="relative z-10">
+                <div
+                  id="attendance-charts"
+                  class="grid grid-cols-2 gap-12"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- PAGE 11 -->
       <div class="page min-h-screen px-24 py-20 relative text-black">
         <div class="page-content pb-32">
@@ -491,6 +516,82 @@
                     <!-- MATCH TABLE DATA -->
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 12 -->
+      <div class="page min-h-screen px-24 py-20 relative text-black">
+        <div class="page-content pb-32">
+          <img
+            src="./page-design.svg"
+            alt="page-design"
+            class="w-20 absolute top-0 right-0"
+          />
+          <img
+            src="./page-element.png"
+            alt="page-design"
+            class="w-48 absolute left-0 bottom-48"
+          />
+          <img
+            src="./8lete-bg-logo.svg"
+            alt="logo-design"
+            class="w-80 absolute right-0 -bottom-12 opacity-20"
+          />
+          <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-20">
+              <div class="flex justify-between items-center pr-8">
+                <h1 class="text-7xl font-black mb-8">About the Club</h1>
+                <img
+                  src="./red-falcon.svg"
+                  alt="8lete"
+                  class="w-40 border-4 rounded-full"
+                  style="border-color: #327bed"
+                />
+              </div>
+              <div class="flex justify-between">
+                <div class="" style="width: 30%">
+                  <h2 class="text-5xl font-bold">The Red Falcons</h2>
+                </div>
+                <div style="width: 55%" class="flex flex-col gap-10">
+                  <p
+                    class="text-xl font-light text-gray-700 leading-loose pr-8"
+                  >
+                    The Red Falcons soar onto the football pitch with an
+                    aggressive attacking style, impenetrable defense, and an
+                    unbreakable team spirit. Clad in bold crimson, they embody
+                    power, precision, and a relentless pursuit of victory. Every
+                    match is a testament to their tactical brilliance, swift
+                    counterattacks, and unwavering determination. With a legacy
+                    forged through grit and passion, the Falcons have carved
+                    their name into football history, striking fear into
+                    opponents and igniting excitement among fans.
+                  </p>
+                  <p
+                    class="text-xl font-light text-gray-700 leading-loose pr-8"
+                  >
+                    Beyond the field, the Red Falcons are more than just a
+                    team—they are a movement. Committed to nurturing young
+                    talent, they cultivate future stars through world- class
+                    training and mentorship. Their deep connection with their
+                    passionate supporters fuels their ambition, creating an
+                    electrifying atmosphere at every game. Whether dominating
+                    championships or inspiring the next generation, the Red
+                    Falcons continue to redefine excellence in football.
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-center">
+                <div id="about-club" class="flex justify-around w-full">
+                  <!-- ABOUT CLUB DATA -->
+                </div>
+              </div>
+              <div class="flex justify-center">
+                <div id="club-stats" class="flex justify-around w-full">
+                  <!-- ABOUT CLUB STATS -->
+                </div>
               </div>
             </div>
           </div>
@@ -1203,6 +1304,64 @@
         row.appendChild(matchPoints);
 
         document.querySelector("#match-points-table-body").appendChild(row);
+      });
+
+      // ABOUT THE CLUB
+      const aboutClubData = [
+        {
+          label: "Founded",
+          value: "1940",
+        },
+        {
+          label: "Location",
+          value: "Mumbai",
+        },
+        {
+          label: "Active 8lete",
+          value: "2000",
+        },
+      ];
+
+      const clubStatsData = [
+        {
+          label: "Trophies Win",
+          value: "20",
+        },
+        {
+          label: "Total Academies",
+          value: "12",
+        },
+      ];
+
+      const clubData = [
+        {
+          id: "about-club",
+          data: aboutClubData,
+        },
+        {
+          id: "club-stats",
+          data: clubStatsData,
+        },
+      ];
+
+      clubData.forEach((data) => {
+        data.data.forEach((item) => {
+          const div = document.createElement("div");
+          div.classList.add("flex", "flex-col", "items-center", "gap-2");
+
+          const labelElement = document.createElement("p");
+          labelElement.classList.add("text-2xl", "font-light");
+          labelElement.textContent = item.label;
+
+          const valueElement = document.createElement("h6");
+          valueElement.classList.add("text-6xl", "font-black", "text-primary");
+          valueElement.textContent = item.value;
+
+          div.appendChild(labelElement);
+          div.appendChild(valueElement);
+
+          document.querySelector(`#${data.id}`).appendChild(div);
+        });
       });
     </script>
   </body>
