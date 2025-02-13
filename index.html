@@ -426,6 +426,28 @@
         </div>
       </div>
 
+      <!-- PAGE 9 -->
+      <div class="page min-h-screen px-24 py-20 relative text-black">
+        <div class="page-content pb-32">
+          <img
+            src="./8lete-bg-logo.svg"
+            alt="logo-design"
+            class="w-80 absolute right-0 -bottom-12 opacity-20"
+          />
+          <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-20">
+              <div
+                id="physical"
+                class="flex justify-between items-center pr-8"
+              ></div>
+              <div class="relative z-10">
+                <div id="physical-charts" class="grid grid-cols-2 gap-12"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- <div class="page">
         <div class="page-content">
           <h1>Page 2</h1>
@@ -625,6 +647,14 @@
           pageId: "defending",
           id: "defending-analysis",
           title: "Defending Analysis",
+          score: 83,
+          labels: ["1"],
+          data: [83, 17],
+        },
+        {
+          pageId: "physical",
+          id: "physical-analysis",
+          title: "Physical Analysis",
           score: 83,
           labels: ["1"],
           data: [83, 17],
@@ -1163,6 +1193,104 @@
       });
 
       defendingAnalysisCharts.forEach((chart) => {
+        const ctx = document.getElementById(chart.id);
+
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: chart.labels,
+            datasets: [
+              {
+                data: chart.data,
+                borderWidth: 1,
+                borderColor: "#327BED",
+                backgroundColor: "#327BED",
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                border: { display: false, dash: [5, 5] },
+              },
+              x: {
+                border: { display: false, dash: [5, 5] },
+              },
+            },
+            plugins: {
+              legend: { display: false },
+            },
+          },
+        });
+      });
+
+      const physicalAnalysisCharts = [
+        {
+          id: "jumping",
+          title: "Jumping",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "stamina",
+          title: "Stamina",
+          score: 80,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "strength",
+          title: "Strength",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "acceleration",
+          title: "Acceleration",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "sprint-speed",
+          title: "Sprint Speed",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+      ];
+
+      physicalAnalysisCharts.forEach((chart) => {
+        const chartDiv = document.createElement("div");
+        chartDiv.classList.add("rounded-3xl", "p-8");
+        chartDiv.style.backgroundColor = "#f8f8f8";
+
+        const chartTitle = document.createElement("div");
+        chartTitle.classList.add("flex", "justify-between", "mb-4");
+
+        const titleElement = document.createElement("h6");
+        titleElement.classList.add("text-3xl", "font-light");
+        titleElement.textContent = chart.title;
+
+        const scoreElement = document.createElement("h6");
+        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
+        scoreElement.textContent = chart.score;
+
+        chartTitle.appendChild(titleElement);
+        chartTitle.appendChild(scoreElement);
+
+        const canvasElement = document.createElement("canvas");
+        canvasElement.id = chart.id;
+
+        chartDiv.appendChild(chartTitle);
+        chartDiv.appendChild(canvasElement);
+        document.querySelector("#physical-charts").appendChild(chartDiv);
+      });
+
+      physicalAnalysisCharts.forEach((chart) => {
         const ctx = document.getElementById(chart.id);
 
         new Chart(ctx, {
