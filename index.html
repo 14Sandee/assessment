@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
       body {
         font-family: "DM Sans", sans-serif;
@@ -32,6 +33,9 @@
       }
       .bg-gray-300 {
         background-color: #d6d6d6;
+      }
+      .text-primary {
+        color: #327bed;
       }
     </style>
   </head>
@@ -150,13 +154,188 @@
           </div>
         </div>
       </div>
-      <div class="page">
+
+      <!-- PAGE 3 -->
+      <div class="page min-h-screen px-24 py-20 relative text-black">
+        <div class="page-content pb-32">
+          <img
+            src="./page-element.png"
+            alt="page-design"
+            class="w-48 absolute left-0 bottom-48"
+          />
+          <img
+            src="./8lete-bg-logo.svg"
+            alt="logo-design"
+            class="w-80 absolute right-0 -bottom-12 opacity-20"
+          />
+          <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-20">
+              <div class="flex justify-between items-center pr-8">
+                <h1 class="text-7xl font-black mb-8">Assessment Report</h1>
+                <div class="relative">
+                  <p
+                    class="absolute m-0 text-white font-black"
+                    style="
+                      font-size: 1.875rem;
+                      top: 40%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                  >
+                    75
+                  </p>
+                  <img src="./score-bg.svg" alt="score" class="w-32" />
+                </div>
+              </div>
+              <div class="flex justify-between">
+                <div class="" style="width: 30%">
+                  <h2 class="text-5xl font-bold">Abhishek Sharma</h2>
+                </div>
+                <div style="width: 63%" class="flex flex-col gap-10">
+                  <p
+                    class="m-0 text-xl font-light text-gray-700 leading-loose pr-8"
+                  >
+                    This month, Abhishek has shown notable improvement in
+                    finishing, displaying greater accuracy and composure in
+                    front of goal. His dribbling and ball control have become
+                    more refined, allowing him to take on defenders with
+                    confidence.With continued focus, he is developing into a
+                    more dynamic and decisive attacker.
+                  </p>
+                  <div
+                    class="flex justify-between rounded-3xl px-12 py-8 items-center"
+                    style="background-color: #f8f8f8"
+                  >
+                    <div class="flex flex-col items-center gap-2">
+                      <h6 class="text-3xl font-black">17 yrs old</h6>
+                      <p>Age</p>
+                    </div>
+                    <div class="w-0.5 h-14 bg-gray-300"></div>
+                    <div class="flex flex-col items-center gap-2">
+                      <h6 class="text-3xl font-black">ATT</h6>
+                      <p>Role</p>
+                    </div>
+                    <div class="w-0.5 h-14 bg-gray-300"></div>
+                    <div class="flex flex-col items-center gap-2">
+                      <h6 class="text-3xl font-black">LW | RW</h6>
+                      <p>Position</p>
+                    </div>
+                    <div class="w-0.5 h-14 bg-gray-300"></div>
+                    <div class="flex flex-col items-center gap-2">
+                      <h6 class="text-3xl font-black">Falcons</h6>
+                      <p>Team</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-8">
+                    <h6 class="text-4xl">Performance Assessment</h6>
+                    <div
+                      id="performance-assessment"
+                      class="grid grid-cols-2 gap-12"
+                    >
+                      <!-- data from script -->
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-8">
+                    <h6 class="text-4xl">Attendance Report</h6>
+                    <div id="attendance-report" class="grid grid-cols-2 gap-12">
+                      <div class="flex gap-6">
+                        <img
+                          src="./attendance.svg"
+                          width="100"
+                          alt="attendance"
+                          style="margin-top: 18px"
+                        />
+                        <div class="flex flex-col justify-around">
+                          <p
+                            style="font-size: 1.25rem"
+                            class="font-light text-gray-700"
+                          >
+                            Attendance (%)
+                          </p>
+                          <h6 style="font-size: 2.25rem" class="font-black">
+                            80%
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-8">
+                    <h6 class="text-4xl">Match Points Report</h6>
+                    <div id="attendance-report" class="grid grid-cols-2 gap-12">
+                      <div class="flex gap-6">
+                        <img
+                          src="./match-points.svg"
+                          width="100"
+                          style="margin-top: 18px"
+                          alt="match-points"
+                        />
+                        <div class="flex flex-col justify-around">
+                          <p
+                            style="font-size: 1.25rem"
+                            class="font-light text-gray-700"
+                          >
+                            Total Match Points
+                          </p>
+                          <h6 style="font-size: 2.25rem" class="font-black">
+                            117
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 4 -->
+      <div class="page min-h-screen px-24 py-20 relative text-black">
+        <div class="page-content pb-32">
+          <img
+            src="./8lete-bg-logo.svg"
+            alt="logo-design"
+            class="w-80 absolute right-0 -bottom-12 opacity-20"
+          />
+          <div class="flex flex-col gap-20">
+            <div class="flex flex-col gap-20">
+              <div class="flex justify-between items-center pr-8">
+                <h1 class="text-7xl font-black mb-8">
+                  Overall Performance Analysis
+                </h1>
+                <div class="relative">
+                  <canvas id="performance-analysis" width="180"></canvas>
+                  <h6
+                    class="absolute text-3xl font-black"
+                    style="
+                      left: 50%;
+                      bottom: 25%;
+                      transform: translate(-50%, -50%);
+                    "
+                  >
+                    83
+                  </h6>
+                </div>
+              </div>
+              <div class="relative z-10">
+                <div
+                  id="overall-performance-charts"
+                  class="grid grid-cols-2 gap-12"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="page">
         <div class="page-content">
           <h1>Page 2</h1>
           <p>This is the second page content.</p>
         </div>
         <footer class="footer">Powered by 8lete</footer>
-      </div>
+      </div> -->
     </div>
     <button id="download">Download PDF</button>
     <!-- <script>
@@ -246,6 +425,221 @@
         remarkDiv.appendChild(dateElement);
         remarkDiv.appendChild(remarksElement);
         document.querySelector("#assessment-remark").appendChild(remarkDiv);
+      });
+
+      const performanceAssessment = [
+        {
+          src: "./shooting.svg",
+          title: "Shooting",
+          score: 83,
+        },
+        {
+          src: "./defending.svg",
+          title: "Defending",
+          score: 78,
+        },
+        {
+          src: "./passing.svg",
+          title: "Passing",
+          score: 85,
+        },
+        {
+          src: "./physical.svg",
+          title: "Physical",
+          score: 70,
+        },
+        {
+          src: "./dribbling.svg",
+          title: "Dribbling",
+          score: 75,
+        },
+      ];
+
+      performanceAssessment.forEach((assessment) => {
+        const assessmentDiv = document.createElement("div");
+        assessmentDiv.classList.add("flex", "gap-6");
+
+        const imgElement = document.createElement("img");
+        imgElement.src = assessment.src;
+        imgElement.width = 100;
+        imgElement.style.marginTop = "18px";
+
+        const assessmentDetails = document.createElement("div");
+        assessmentDetails.classList.add("flex", "flex-col", "justify-around");
+
+        const titleElement = document.createElement("p");
+        titleElement.classList.add(
+          "m-0",
+          "text-xl",
+          "font-light",
+          "text-gray-700"
+        );
+        titleElement.textContent = assessment.title;
+
+        const scoreValue = document.createElement("h6");
+        scoreValue.classList.add("text-4xl", "font-black");
+        scoreValue.textContent = assessment.score;
+
+        assessmentDetails.appendChild(titleElement);
+        assessmentDetails.appendChild(scoreValue);
+
+        assessmentDiv.appendChild(imgElement);
+        assessmentDiv.appendChild(assessmentDetails);
+
+        document
+          .querySelector("#performance-assessment")
+          .appendChild(assessmentDiv);
+      });
+
+      const overallPagesAnalysis = [
+        {
+          id: "performance-analysis",
+          labels: ["1"],
+          data: [85, 15],
+        },
+        {
+          id: "shooting-analysis",
+          labels: ["1"],
+          data: [85, 15],
+        },
+      ];
+
+      overallPagesAnalysis.forEach((chart) => {
+        const ctxAnalysis = document.getElementById(chart.id);
+
+        new Chart(ctxAnalysis, {
+          type: "doughnut",
+          data: {
+            labels: chart.labels,
+            datasets: [
+              {
+                data: chart.data,
+                borderWidth: 1,
+                borderColor: ["#327BED", "#E4E4E4"],
+                backgroundColor: ["#327BED", "#E4E4E4"],
+              },
+            ],
+          },
+          options: {
+            rotation: -90,
+            circumference: 180,
+            cutout: "80%",
+            scales: {
+              y: {
+                display: false,
+              },
+              x: {
+                display: false,
+              },
+            },
+            tooltip: {
+              enabled: false,
+            },
+            plugins: {
+              legend: { display: false },
+            },
+          },
+        });
+      });
+
+      const overallPerformanceCharts = [
+        {
+          id: "shooting-chart",
+          title: "Shooting",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "passing-chart",
+          title: "Passing",
+          score: 80,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "dribbling-chart",
+          title: "Dribbling",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "defending-chart",
+          title: "Defending",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+        {
+          id: "physical-chart",
+          title: "Physical",
+          score: 83,
+          data: [12, 19, 3, 5, 2, 3],
+          labels: ["1", "2", "3", "4", "5", "6"],
+        },
+      ];
+
+      overallPerformanceCharts.forEach((chart) => {
+        const chartDiv = document.createElement("div");
+        chartDiv.classList.add("rounded-3xl", "p-8");
+        chartDiv.style.backgroundColor = "#f8f8f8";
+
+        const chartTitle = document.createElement("div");
+        chartTitle.classList.add("flex", "justify-between", "mb-4");
+
+        const titleElement = document.createElement("h6");
+        titleElement.classList.add("text-3xl", "font-light");
+        titleElement.textContent = chart.title;
+
+        const scoreElement = document.createElement("h6");
+        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
+        scoreElement.textContent = chart.score;
+
+        chartTitle.appendChild(titleElement);
+        chartTitle.appendChild(scoreElement);
+
+        const canvasElement = document.createElement("canvas");
+        canvasElement.id = chart.id;
+
+        chartDiv.appendChild(chartTitle);
+        chartDiv.appendChild(canvasElement);
+        document
+          .querySelector("#overall-performance-charts")
+          .appendChild(chartDiv);
+      });
+
+      overallPerformanceCharts.forEach((chart) => {
+        const ctx = document.getElementById(chart.id);
+
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: chart.labels,
+            datasets: [
+              {
+                data: chart.data,
+                borderWidth: 1,
+                borderColor: "#327BED",
+                backgroundColor: "#327BED",
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                border: { display: false, dash: [5, 5] },
+              },
+              x: {
+                border: { display: false, dash: [5, 5] },
+              },
+            },
+            plugins: {
+              legend: { display: false },
+            },
+          },
+        });
       });
     </script>
   </body>
