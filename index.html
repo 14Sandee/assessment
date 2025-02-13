@@ -764,68 +764,6 @@
         },
       ];
 
-      overallPerformanceCharts.forEach((chart) => {
-        const chartDiv = document.createElement("div");
-        chartDiv.classList.add("rounded-3xl", "p-8");
-        chartDiv.style.backgroundColor = "#f8f8f8";
-
-        const chartTitle = document.createElement("div");
-        chartTitle.classList.add("flex", "justify-between", "mb-4");
-
-        const titleElement = document.createElement("h6");
-        titleElement.classList.add("text-3xl", "font-light");
-        titleElement.textContent = chart.title;
-
-        const scoreElement = document.createElement("h6");
-        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
-        scoreElement.textContent = chart.score;
-
-        chartTitle.appendChild(titleElement);
-        chartTitle.appendChild(scoreElement);
-
-        const canvasElement = document.createElement("canvas");
-        canvasElement.id = chart.id;
-
-        chartDiv.appendChild(chartTitle);
-        chartDiv.appendChild(canvasElement);
-        document
-          .querySelector("#overall-performance-charts")
-          .appendChild(chartDiv);
-      });
-
-      overallPerformanceCharts.forEach((chart) => {
-        const ctx = document.getElementById(chart.id);
-
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: chart.labels,
-            datasets: [
-              {
-                data: chart.data,
-                borderWidth: 1,
-                borderColor: "#327BED",
-                backgroundColor: "#327BED",
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                border: { display: false, dash: [5, 5] },
-              },
-              x: {
-                border: { display: false, dash: [5, 5] },
-              },
-            },
-            plugins: {
-              legend: { display: false },
-            },
-          },
-        });
-      });
-
       const shootingAnalysisChart = [
         {
           id: "positioning",
@@ -871,66 +809,6 @@
         },
       ];
 
-      shootingAnalysisChart.forEach((chart) => {
-        const chartDiv = document.createElement("div");
-        chartDiv.classList.add("rounded-3xl", "p-8");
-        chartDiv.style.backgroundColor = "#f8f8f8";
-
-        const chartTitle = document.createElement("div");
-        chartTitle.classList.add("flex", "justify-between", "mb-4");
-
-        const titleElement = document.createElement("h6");
-        titleElement.classList.add("text-3xl", "font-light");
-        titleElement.textContent = chart.title;
-
-        const scoreElement = document.createElement("h6");
-        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
-        scoreElement.textContent = chart.score;
-
-        chartTitle.appendChild(titleElement);
-        chartTitle.appendChild(scoreElement);
-
-        const canvasElement = document.createElement("canvas");
-        canvasElement.id = chart.id;
-
-        chartDiv.appendChild(chartTitle);
-        chartDiv.appendChild(canvasElement);
-        document.querySelector("#shooting-charts").appendChild(chartDiv);
-      });
-
-      shootingAnalysisChart.forEach((chart) => {
-        const ctx = document.getElementById(chart.id);
-
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: chart.labels,
-            datasets: [
-              {
-                data: chart.data,
-                borderWidth: 1,
-                borderColor: "#327BED",
-                backgroundColor: "#327BED",
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                border: { display: false, dash: [5, 5] },
-              },
-              x: {
-                border: { display: false, dash: [5, 5] },
-              },
-            },
-            plugins: {
-              legend: { display: false },
-            },
-          },
-        });
-      });
-
       const passingAnalysisCharts = [
         {
           id: "vision",
@@ -961,66 +839,6 @@
           labels: ["1", "2", "3", "4", "5", "6"],
         },
       ];
-
-      passingAnalysisCharts.forEach((chart) => {
-        const chartDiv = document.createElement("div");
-        chartDiv.classList.add("rounded-3xl", "p-8");
-        chartDiv.style.backgroundColor = "#f8f8f8";
-
-        const chartTitle = document.createElement("div");
-        chartTitle.classList.add("flex", "justify-between", "mb-4");
-
-        const titleElement = document.createElement("h6");
-        titleElement.classList.add("text-3xl", "font-light");
-        titleElement.textContent = chart.title;
-
-        const scoreElement = document.createElement("h6");
-        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
-        scoreElement.textContent = chart.score;
-
-        chartTitle.appendChild(titleElement);
-        chartTitle.appendChild(scoreElement);
-
-        const canvasElement = document.createElement("canvas");
-        canvasElement.id = chart.id;
-
-        chartDiv.appendChild(chartTitle);
-        chartDiv.appendChild(canvasElement);
-        document.querySelector("#passing-charts").appendChild(chartDiv);
-      });
-
-      passingAnalysisCharts.forEach((chart) => {
-        const ctx = document.getElementById(chart.id);
-
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: chart.labels,
-            datasets: [
-              {
-                data: chart.data,
-                borderWidth: 1,
-                borderColor: "#327BED",
-                backgroundColor: "#327BED",
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                border: { display: false, dash: [5, 5] },
-              },
-              x: {
-                border: { display: false, dash: [5, 5] },
-              },
-            },
-            plugins: {
-              legend: { display: false },
-            },
-          },
-        });
-      });
 
       const dribblingAnalysisCharts = [
         {
@@ -1067,66 +885,6 @@
         },
       ];
 
-      dribblingAnalysisCharts.forEach((chart) => {
-        const chartDiv = document.createElement("div");
-        chartDiv.classList.add("rounded-3xl", "p-8");
-        chartDiv.style.backgroundColor = "#f8f8f8";
-
-        const chartTitle = document.createElement("div");
-        chartTitle.classList.add("flex", "justify-between", "mb-4");
-
-        const titleElement = document.createElement("h6");
-        titleElement.classList.add("text-3xl", "font-light");
-        titleElement.textContent = chart.title;
-
-        const scoreElement = document.createElement("h6");
-        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
-        scoreElement.textContent = chart.score;
-
-        chartTitle.appendChild(titleElement);
-        chartTitle.appendChild(scoreElement);
-
-        const canvasElement = document.createElement("canvas");
-        canvasElement.id = chart.id;
-
-        chartDiv.appendChild(chartTitle);
-        chartDiv.appendChild(canvasElement);
-        document.querySelector("#dribbling-charts").appendChild(chartDiv);
-      });
-
-      dribblingAnalysisCharts.forEach((chart) => {
-        const ctx = document.getElementById(chart.id);
-
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: chart.labels,
-            datasets: [
-              {
-                data: chart.data,
-                borderWidth: 1,
-                borderColor: "#327BED",
-                backgroundColor: "#327BED",
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                border: { display: false, dash: [5, 5] },
-              },
-              x: {
-                border: { display: false, dash: [5, 5] },
-              },
-            },
-            plugins: {
-              legend: { display: false },
-            },
-          },
-        });
-      });
-
       const defendingAnalysisCharts = [
         {
           id: "interceptions",
@@ -1164,66 +922,6 @@
           labels: ["1", "2", "3", "4", "5", "6"],
         },
       ];
-
-      defendingAnalysisCharts.forEach((chart) => {
-        const chartDiv = document.createElement("div");
-        chartDiv.classList.add("rounded-3xl", "p-8");
-        chartDiv.style.backgroundColor = "#f8f8f8";
-
-        const chartTitle = document.createElement("div");
-        chartTitle.classList.add("flex", "justify-between", "mb-4");
-
-        const titleElement = document.createElement("h6");
-        titleElement.classList.add("text-3xl", "font-light");
-        titleElement.textContent = chart.title;
-
-        const scoreElement = document.createElement("h6");
-        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
-        scoreElement.textContent = chart.score;
-
-        chartTitle.appendChild(titleElement);
-        chartTitle.appendChild(scoreElement);
-
-        const canvasElement = document.createElement("canvas");
-        canvasElement.id = chart.id;
-
-        chartDiv.appendChild(chartTitle);
-        chartDiv.appendChild(canvasElement);
-        document.querySelector("#defending-charts").appendChild(chartDiv);
-      });
-
-      defendingAnalysisCharts.forEach((chart) => {
-        const ctx = document.getElementById(chart.id);
-
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: chart.labels,
-            datasets: [
-              {
-                data: chart.data,
-                borderWidth: 1,
-                borderColor: "#327BED",
-                backgroundColor: "#327BED",
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                border: { display: false, dash: [5, 5] },
-              },
-              x: {
-                border: { display: false, dash: [5, 5] },
-              },
-            },
-            plugins: {
-              legend: { display: false },
-            },
-          },
-        });
-      });
 
       const physicalAnalysisCharts = [
         {
@@ -1263,63 +961,94 @@
         },
       ];
 
-      physicalAnalysisCharts.forEach((chart) => {
-        const chartDiv = document.createElement("div");
-        chartDiv.classList.add("rounded-3xl", "p-8");
-        chartDiv.style.backgroundColor = "#f8f8f8";
+      const allData = [
+        {
+          id: "overall-performance-charts",
+          data: overallPerformanceCharts,
+        },
+        {
+          id: "shooting-charts",
+          data: shootingAnalysisChart,
+        },
+        {
+          id: "passing-charts",
+          data: passingAnalysisCharts,
+        },
+        {
+          id: "dribbling-charts",
+          data: dribblingAnalysisCharts,
+        },
+        {
+          id: "defending-charts",
+          data: defendingAnalysisCharts,
+        },
+        {
+          id: "physical-charts",
+          data: physicalAnalysisCharts,
+        },
+      ];
 
-        const chartTitle = document.createElement("div");
-        chartTitle.classList.add("flex", "justify-between", "mb-4");
+      allData.map((page) => {
+        page.data.forEach((chart) => {
+          const chartDiv = document.createElement("div");
+          chartDiv.classList.add("rounded-3xl", "p-8");
+          chartDiv.style.backgroundColor = "#f8f8f8";
 
-        const titleElement = document.createElement("h6");
-        titleElement.classList.add("text-3xl", "font-light");
-        titleElement.textContent = chart.title;
+          const chartTitle = document.createElement("div");
+          chartTitle.classList.add("flex", "justify-between", "mb-4");
 
-        const scoreElement = document.createElement("h6");
-        scoreElement.classList.add("text-3xl", "font-black", "text-primary");
-        scoreElement.textContent = chart.score;
+          const titleElement = document.createElement("h6");
+          titleElement.classList.add("text-3xl", "font-light");
+          titleElement.textContent = chart.title;
 
-        chartTitle.appendChild(titleElement);
-        chartTitle.appendChild(scoreElement);
+          const scoreElement = document.createElement("h6");
+          scoreElement.classList.add("text-3xl", "font-black", "text-primary");
+          scoreElement.textContent = chart.score;
 
-        const canvasElement = document.createElement("canvas");
-        canvasElement.id = chart.id;
+          chartTitle.appendChild(titleElement);
+          chartTitle.appendChild(scoreElement);
 
-        chartDiv.appendChild(chartTitle);
-        chartDiv.appendChild(canvasElement);
-        document.querySelector("#physical-charts").appendChild(chartDiv);
+          const canvasElement = document.createElement("canvas");
+          canvasElement.id = chart.id;
+
+          chartDiv.appendChild(chartTitle);
+          chartDiv.appendChild(canvasElement);
+          document.querySelector(`#${page.id}`).appendChild(chartDiv);
+        });
       });
 
-      physicalAnalysisCharts.forEach((chart) => {
-        const ctx = document.getElementById(chart.id);
+      allData.map((page) => {
+        page.data.forEach((chart) => {
+          const ctx = document.getElementById(chart.id);
 
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: chart.labels,
-            datasets: [
-              {
-                data: chart.data,
-                borderWidth: 1,
-                borderColor: "#327BED",
-                backgroundColor: "#327BED",
+          new Chart(ctx, {
+            type: "line",
+            data: {
+              labels: chart.labels,
+              datasets: [
+                {
+                  data: chart.data,
+                  borderWidth: 1,
+                  borderColor: "#327BED",
+                  backgroundColor: "#327BED",
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  border: { display: false, dash: [5, 5] },
+                },
+                x: {
+                  border: { display: false, dash: [5, 5] },
+                },
               },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                border: { display: false, dash: [5, 5] },
-              },
-              x: {
-                border: { display: false, dash: [5, 5] },
+              plugins: {
+                legend: { display: false },
               },
             },
-            plugins: {
-              legend: { display: false },
-            },
-          },
+          });
         });
       });
     </script>
