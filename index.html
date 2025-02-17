@@ -37,6 +37,9 @@
       .text-primary {
         color: #327bed;
       }
+      .bg-primary {
+        background-color: #327bed;
+      }
     </style>
   </head>
   <body>
@@ -467,7 +470,8 @@
               <div class="relative z-10">
                 <div
                   id="attendance-charts"
-                  class="grid grid-cols-2 gap-12"
+                  class="gap-12"
+                  style="max-width: 60%"
                 ></div>
               </div>
             </div>
@@ -1220,6 +1224,151 @@
             },
           });
         });
+      });
+
+      // ATTENDANCE CHART
+
+      const attendanceDiv = document.createElement("div");
+      attendanceDiv.classList.add(
+        "rounded-3xl",
+        "px-8",
+        "pt-4",
+        "pb-8",
+        "flex",
+        "justify-between",
+        "h-full",
+        "items-center"
+      );
+      attendanceDiv.style.backgroundColor = "#f8f8f8";
+
+      const attendanceTitle = document.createElement("div");
+      attendanceTitle.classList.add(
+        "flex",
+        "justify-around",
+        "items-center",
+        "w-full"
+      );
+
+      const canvasContainer = document.createElement("div");
+      canvasContainer.classList.add("w-72");
+
+      const attendanceCanvas = document.createElement("canvas");
+      attendanceCanvas.id = "attendance-doughnut";
+
+      canvasContainer.appendChild(attendanceCanvas);
+      attendanceTitle.appendChild(canvasContainer);
+
+      const attendanceContent = document.createElement("div");
+      attendanceContent.classList.add("flex", "flex-col", "gap-4");
+
+      const attendanceHeading = document.createElement("div");
+      attendanceHeading.classList.add("flex", "items-center", "gap-4");
+
+      const attendanceColor = document.createElement("div");
+      attendanceColor.classList.add("p-4", "rounded-sm", "bg-primary");
+
+      const attendanceText = document.createElement("h6");
+      attendanceText.classList.add("text-4xl", "font-light");
+      attendanceText.textContent = "Attendance (%)";
+
+      attendanceHeading.appendChild(attendanceColor);
+
+      attendanceHeading.appendChild(attendanceText);
+
+      const attendanceScore = document.createElement("h5");
+      attendanceScore.classList.add("text-6xl", "font-black");
+      attendanceScore.textContent = "61%";
+
+      const attendanceChange = document.createElement("div");
+      attendanceChange.classList.add("flex", "items-center", "gap-2");
+
+      const imgElement = document.createElement("img");
+      imgElement.src = "./down-arrow.svg";
+      imgElement.width = 20;
+
+      const changeElement = document.createElement("h6");
+      changeElement.textContent = "10% vs Last Assessment";
+
+      attendanceChange.appendChild(imgElement);
+      attendanceChange.appendChild(changeElement);
+
+      attendanceContent.appendChild(attendanceHeading);
+      attendanceContent.appendChild(attendanceScore);
+      attendanceContent.appendChild(attendanceChange);
+
+      attendanceTitle.appendChild(attendanceContent);
+
+      attendanceDiv.appendChild(attendanceTitle);
+
+      document.querySelector("#attendance-charts").appendChild(attendanceDiv);
+
+      const attendanceData = [61, 39];
+
+      const ctxAttendance = document.getElementById("attendance-doughnut");
+
+      new Chart(ctxAttendance, {
+        type: "doughnut",
+        data: {
+          labels: ["1", "2"],
+          datasets: [
+            {
+              data: attendanceData,
+              borderWidth: 1,
+              borderColor: ["#327BED", "#E4E4E4"],
+              backgroundColor: ["#327BED", "#E4E4E4"],
+            },
+          ],
+        },
+        options: {
+          // rotation: -90,
+          // circumference: 180,
+          cutout: "75%",
+          scales: {
+            y: {
+              display: false,
+            },
+            x: {
+              display: false,
+            },
+          },
+          tooltip: {
+            enabled: false,
+          },
+          plugins: {
+            legend: { display: false },
+          },
+        },
+        plugins: [
+          {
+            id: "attendance",
+            beforeDraw(chart) {
+              const {
+                ctx,
+                chartArea: { top, left, right, bottom, width, height },
+              } = chart;
+
+              const centerX = (left + right) / 2;
+              const centerY = (top + bottom) / 2;
+              const r = Math.min(right - left, bottom - top) / 2;
+              const startY = height / 1.75;
+
+              ctx.textAlign = "center";
+              ctx.textBaseline = "bottom";
+
+              ctx.font = "bold 60px DM Sans";
+              ctx.fillStyle = "#2A2A2A";
+              ctx.fillText("11 / 18", width / 2 + left, height / 2 + top);
+
+              ctx.font = "500 20px DM Sans";
+              ctx.fillStyle = "#2A2A2A";
+              ctx.fillText(
+                "Sessions Attended",
+                width / 2 + left,
+                height / 2 + top + 40
+              );
+            },
+          },
+        ],
       });
 
       const matchPointsTableData = [
