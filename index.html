@@ -1259,16 +1259,16 @@
       attendanceTitle.appendChild(canvasContainer);
 
       const attendanceContent = document.createElement("div");
-      attendanceContent.classList.add("flex", "flex-col", "gap-4");
+      attendanceContent.classList.add("flex", "flex-col");
 
       const attendanceHeading = document.createElement("div");
       attendanceHeading.classList.add("flex", "items-center", "gap-4");
-
       const attendanceColor = document.createElement("div");
       attendanceColor.classList.add("p-4", "rounded-sm", "bg-primary");
 
       const attendanceText = document.createElement("h6");
       attendanceText.classList.add("text-4xl", "font-light");
+      attendanceText.style.marginTop = "-25px";
       attendanceText.textContent = "Attendance (%)";
 
       attendanceHeading.appendChild(attendanceColor);
@@ -1276,11 +1276,11 @@
       attendanceHeading.appendChild(attendanceText);
 
       const attendanceScore = document.createElement("h5");
-      attendanceScore.classList.add("text-6xl", "font-black");
+      attendanceScore.classList.add("text-6xl", "font-black", "mb-6");
       attendanceScore.textContent = "61%";
 
       const attendanceChange = document.createElement("div");
-      attendanceChange.classList.add("flex", "items-center", "gap-2");
+      attendanceChange.classList.add("flex", "items-center", "gap-2", "mt-4");
 
       const imgElement = document.createElement("img");
       imgElement.src = "./down-arrow.svg";
@@ -1288,6 +1288,7 @@
 
       const changeElement = document.createElement("h6");
       changeElement.textContent = "10% vs Last Assessment";
+      changeElement.style.marginTop = "-15px";
 
       attendanceChange.appendChild(imgElement);
       attendanceChange.appendChild(changeElement);
@@ -1350,7 +1351,7 @@
               const centerX = (left + right) / 2;
               const centerY = (top + bottom) / 2;
               const r = Math.min(right - left, bottom - top) / 2;
-              const startY = height / 1.75;
+              const startY = height / 1.5;
 
               ctx.textAlign = "center";
               ctx.textBaseline = "bottom";
